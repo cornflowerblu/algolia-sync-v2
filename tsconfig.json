@@ -18,5 +18,11 @@
   },
   "compilerOptions": {
     "allowJs": true
-  }
+  },
+  "exclude": [
+    "tests",
+    "./node_modules/",
+    "./dist/",
+    "./bin"
+  ],
 }

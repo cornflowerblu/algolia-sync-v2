@@ -9,7 +9,7 @@ require('dotenv').config()
 import healthCheckRouter from './routes/health'
 import syncRouter from './routes/sync'
 
-const app = express()
+export const app = express()
 
 app.use(logger('dev'))
 app.use(express.json())
