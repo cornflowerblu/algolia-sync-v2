@@ -4,11 +4,8 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN apk update
-RUN apk add bash
-
 RUN npm ci --no-audit
 
-EXPOSE 8080
+EXPOSE 8888
 
-CMD [ "npm", "start", "&", "npm", "test" ]
+CMD [ "npm", "test" ]

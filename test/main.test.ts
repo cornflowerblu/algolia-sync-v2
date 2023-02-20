@@ -2,7 +2,9 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const expect = require('chai').expect
-const request = require('supertest')(`http://localhost:${process.env.PORT}`)
+const request = require('supertest')(
+  `http://${process.env.TEST_HOST}:${process.env.PORT}`,
+)
 
 describe('Health check', () => {
   it('should return 200', async () => {

@@ -17,3 +17,17 @@ services:
       SYNC_KEY: abcdefg
       NODE_ENV: production
       PORT: 8080
+  test:
+    build:
+      context: .
+      dockerfile: test.Dockerfile
+    depends_on:
+      - db
+      - app
+    ports:
+      - 8888:8888
+    environment:
+      SYNC_KEY: abcdefg
+      NODE_ENV: production
+      TEST_HOST: app
+      PORT: 8080
