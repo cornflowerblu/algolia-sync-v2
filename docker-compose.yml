@@ -16,3 +16,4 @@ services:
     environment:
       SYNC_KEY: abcdefg
       NODE_ENV: production
+      PORT: 8080
