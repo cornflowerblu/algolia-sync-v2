@@ -25,10 +25,10 @@ export const pgClient = new Client({
   user: process.env.POSTGRES_USER || 'postgres',
   password: process.env.POSTGRES_PASSWORD || 'postgres',
   database: process.env.POSTGRES_DB || 'postgres',
-  ssl: {
-    rejectUnauthorized: false,
-    ca: fs.readFileSync('ca-certificate.crt').toString(),
-  },
+  // ssl: {
+  //   rejectUnauthorized: false,
+  //   ca: fs.readFileSync('ca-certificate.crt').toString(),
+  // },
 })
 
 pgClient.connect().then(() => console.log('Database Connected'))

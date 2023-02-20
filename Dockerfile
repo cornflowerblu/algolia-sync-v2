@@ -19,7 +19,6 @@ COPY --from=builder /usr/src/app/package.json ./package.json
 COPY --from=builder /usr/src/app/routes ./routes
 COPY --from=builder /usr/src/app/tsconfig.json ./tsconfig.json
 COPY --from=builder /usr/src/app/app.ts ./app.ts
-COPY --from=builder /usr/src/app/ca-certificate.crt ./ca-certificate.crt
 
 EXPOSE 8080
 
