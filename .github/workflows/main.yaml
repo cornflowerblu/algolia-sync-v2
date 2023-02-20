@@ -77,5 +77,5 @@ jobs:
 
       - name: Rollout Pods and Verify
         run: |
-          kubectl rollout restart deployment/algolia-sync -n algolia
-          kubectl rollout status deployment/algolia-sync -n algolia
+          kubectl rollout restart deployment/algolia-sync-v2 -n algolia
+          kubectl rollout status deployment/algolia-sync-v2 -n algolia
