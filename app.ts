@@ -29,6 +29,7 @@ export const pgClient = new Client({
   //   rejectUnauthorized: false,
   //   ca: fs.readFileSync('ca-certificate.crt').toString(),
   // },
+  ssl: process.env.POSTGRES_SSL ? { rejectUnauthorized: false } : false,
 })
 
 pgClient.connect().then(() => console.log('Database Connected'))
