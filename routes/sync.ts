@@ -1,10 +1,10 @@
 import express, { Request, Response } from 'express'
-import { pgClient } from '../db'
 import algoliasearch from 'algoliasearch'
+import { pgClient } from '../app'
 
 const syncRouter = express.Router()
 
-syncRouter.get('/sync', async (req: Request, res: Response) => {
+syncRouter.get('/', async (req: Request, res: Response) => {
   if (req.query.key !== process.env.SYNC_KEY)
     return res.status(401).json({
       message: 'Unauthorized',
@@ -13,15 +13,15 @@ syncRouter.get('/sync', async (req: Request, res: Response) => {
 
   const dataCheck = await pgClient.query(`
     SELECT EXISTS (
-      SELECT FROM 
+      SELECT FROM
           pg_tables
-      WHERE 
-          schemaname = 'public' AND 
+      WHERE
+          schemaname = 'public' AND
           tablename  = 'episodes'
       );
     `)
 
-  if (dataCheck.rows[0].exists === false) {
+  if (dataCheck.rows[0].exists !== true) {
     return res.status(200).json({
       message: 'No episodes to sync',
       status: res.statusCode,
