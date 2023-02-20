@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express'
 import algoliasearch from 'algoliasearch'
 import { pgClient } from '../app'
+import morgan from 'morgan'
 
 const syncRouter = express.Router()
 
@@ -22,6 +23,15 @@ syncRouter.get('/', async (req: Request, res: Response) => {
     `)
 
   if (dataCheck.rows[0].exists !== true) {
+    morgan('common', {
+      skip: function (req, res) {
+        console.log(`URL: ${req.url}`)
+        {
+          return res.sendDate, res.statusCode >= 400 ? true : false
+        }
+      },
+    })
+
     return res.status(200).json({
       message: 'No episodes to sync',
       status: res.statusCode,
