@@ -17,12 +17,7 @@
     }
   },
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": true
   },
-  "exclude": [
-    "tests",
-    "./node_modules/",
-    "./dist/",
-    "./bin"
-  ],
+  "exclude": ["tests", "./node_modules/", "./dist/", "./bin"]
 }
