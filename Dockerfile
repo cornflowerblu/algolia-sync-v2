@@ -5,8 +5,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm ci --no-audit
-RUN npm prune --omit=dev
+RUN npm ci --no-audit --omit-dev
 
 ## PROD IMAGE
 FROM node:lts-alpine as production
